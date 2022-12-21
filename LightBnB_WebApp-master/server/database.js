@@ -8,11 +8,12 @@ const pool = new Pool({
   database: "lightbnb",
 });
 
-/// Users
+/// Users (use the lightbnb database with SQL queries.)
 
 /**
  * Get a single user from the database given their email.
-
+ * @param {String} email The email of the user.
+ * @return {Promise<{}>} A promise to the user.
  */
 const getUserWithEmail = (email) => {
   return pool
@@ -81,7 +82,7 @@ const getAllReservations = function (guest_id, limit = 10) {
 };
 exports.getAllReservations = getAllReservations;
 
-/// Properties
+/// Properties(use the lightbnb database with SQL queries.)
 
 /**
  * Get all properties.
