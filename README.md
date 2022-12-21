@@ -51,11 +51,11 @@ A simple multi-page AirBnB clone that uses server-side Javascript to display the
 
 ## Screenshot
 
-!["Screenshot of Desktop-screen"](/docs/desktopimage.png);
+!["Screenshot of Desktop-screen"](/docs/desktopimage.png)
 
 ## ERD of WebApp
 
-!["ERD"](/docs/erd.png);
+!["ERD"](/docs/erd.png)
 
 ## Dependecies
 
