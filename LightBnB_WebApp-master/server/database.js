@@ -48,7 +48,7 @@ const addUser = function (user) {
   return pool
     .query(
       `INSERT INTO users (name, email, password) VALUES($1, $2, $3) RETURNING *`,
-      [user.name, user.email, user.email]
+      [user.name, user.email, user.password]
     )
     .then((res) => res.rows[0]);
 };
@@ -98,9 +98,8 @@ const getAllProperties = (options, limit = 10) => {
   let queryString = `
    SELECT properties.*, avg(property_reviews.rating) as average_rating
    FROM properties
-   JOIN property_reviews ON properties.id = property_id
+   LEFT JOIN property_reviews ON properties.id = property_id
    `;
-
   // city
   if (options.city) {
     queryParams.push(`%${options.city}%`);
@@ -108,8 +107,8 @@ const getAllProperties = (options, limit = 10) => {
   }
   // owner
   if (options.owner_id) {
-    queryParams.push(`${options.owner_id}`);
-    queryString += `AND owner_id LIKE $${queryParams.length}`;
+    queryParams.push(Number(options.owner_id));
+    queryString += `AND owner_id = $${queryParams.length}`;
   }
   // minimu price
   if (options.minimum_price_per_night) {
@@ -133,7 +132,7 @@ const getAllProperties = (options, limit = 10) => {
    ORDER BY cost_per_night
    LIMIT $${queryParams.length};
    `;
-
+  console.log(queryParams, queryString);
   return pool.query(queryString, queryParams).then((res) => {
     return Promise.resolve(res.rows);
   });
@@ -149,7 +148,7 @@ const addProperty = function (property) {
   const queryString = `
  INSERT INTO properties (owner_id, title, description, thumbnail_photo_url, 
   cover_photo_url, cost_per_night, parking_spaces, number_of_bathrooms, number_of_bedrooms, country, street, 
-  city, province, post_code
+  city, province, post_code)
   VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
   RETURNING *;`;
 
@@ -159,13 +158,13 @@ const addProperty = function (property) {
     property.description,
     property.thumbnail_photo_url,
     property.cover_photo_url,
-    property.cost_per_night,
-    property.parking_spaces,
-    property.number_of_bathrooms,
-    property.number_of_bedrooms,
+    Number(property.cost_per_night),
+    Number(property.parking_spaces),
+    Number(property.number_of_bathrooms),
+    Number(property.number_of_bedrooms),
     property.country,
-    property.city,
     property.street,
+    property.city,
     property.province,
     property.post_code,
   ];
