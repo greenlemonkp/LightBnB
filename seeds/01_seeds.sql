@@ -7,9 +7,9 @@ VALUES
 
 INSERT INTO properties (owner_id, title, description, thumbnail_photo_url, cover_photo_url, cost_per_night, parking_spaces, number_of_bathrooms, number_of_bedrooms, country, street, city, province, post_code, active)
 VALUES
-(1, 'SeoulMotel', 'description', 'https://media.cnn.com/api/v1/images/stellar/prod/170420103825-westin-chosun.jpg?q=x_0,y_151,h_1896,w_3369,c_crop/h_720,w_1280' , 50, 1, 1, 1, 'South_Korea', 'Gangnam', 'Seoul', 'Seoul', '12345', true),
-(2, 'BusanBeach', 'description',  'https://www.google.ca/url?sa=i&url=https%3A%2F%2Fwww.airbnb.com%2Fbusan-south-korea%2Fstays&psig=AOvVaw1e384y1CoNiBPeNf4Zbp1p&ust=1670955471820000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCKiSqrDY9PsCFQAAAAAdAAAAABAI', 'https://www.airbnb.ca/rooms/704925415368364429?source_impression_id=p3_1670869235_V05RASVUsdSTpYFd', 100, 1, 1, 1, 'South_Korea', 'Haeundae', 'Busan', 'Busan', '12345', true),
-(3, 'CheonAnHall', 'description',  'https://www.google.com', 'https://static.readytotrip.com/upload/information_system_24/1/4/2/item_1427588/information_items_property_12988328.jpg', 30, 1, 1, 1, 'South_Korea', 'CityHall_Way', 'Cheonan', 'ChungchungNamdo', '12345', true);
+(1, 'SeoulMotel', 'description', 'https://e1.pxfuel.com/desktop-wallpaper/975/515/desktop-wallpaper-lotte-hotel-seoul-in-south-korea-thumbnail.jpg', 'https://media.cnn.com/api/v1/images/stellar/prod/170420103825-westin-chosun.jpg?q=x_0,y_151,h_1896,w_3369,c_crop/h_720,w_1280' , 50, 1, 1, 1, 'South_Korea', 'Gangnam', 'Seoul', 'Seoul', '12345', true),
+(2, 'BusanMotel', 'description', 'https://e1.pxfuel.com/desktop-wallpaper/975/515/desktop-wallpaper-lotte-hotel-seoul-in-south-korea-thumbnail.jpg', 'https://media.cnn.com/api/v1/images/stellar/prod/170420103825-westin-chosun.jpg?q=x_0,y_151,h_1896,w_3369,c_crop/h_720,w_1280' , 50, 1, 1, 1, 'South_Korea', 'Gangnam', 'Seoul', 'Seoul', '12345', true),
+(3, 'CheonAnHall', 'description',  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRv-fFqWtzhCejKKoGL60KGNudFozk55A0qug&usqp=CAU','https://static.readytotrip.com/upload/information_system_24/1/4/2/item_1427588/information_items_property_12988328.jpg', 30, 1, 1, 1, 'South_Korea', 'CityHall_Way', 'Cheonan', 'ChungchungNamdo', '12345', true);
 
 
 INSERT INTO reservations (start_date, end_date, property_id, guest_id)
